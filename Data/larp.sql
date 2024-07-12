@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-07-12 12:05:41
+-- 產生時間： 2024-07-12 12:15:23
 -- 伺服器版本： 8.4.0
 -- PHP 版本： 8.1.25
 
@@ -164,6 +164,17 @@ ALTER TABLE `larptag`
 --
 ALTER TABLE `taglist`
   ADD PRIMARY KEY (`tag_id`);
+
+--
+-- 已傾印資料表的限制式
+--
+
+--
+-- 資料表的限制式 `larptag`
+--
+ALTER TABLE `larptag`
+  ADD CONSTRAINT `larptag_ibfk_1` FOREIGN KEY (`larp_id`) REFERENCES `larplist` (`larp_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `larptag_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `taglist` (`tag_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
