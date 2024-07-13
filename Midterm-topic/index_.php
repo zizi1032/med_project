@@ -86,7 +86,7 @@
               <th scope="col" class="col-1">簡介</th>
               <th scope="col" class="col-2">故事描述</th>
               <th scope="col" class="col-1">人數限制</th>
-              <th scope="col" class="col">類型</th>
+              <th scope="col" class="col">類別</th>
               <th scope="col" class="col-1">時間</th>
               <th scope="col" class="col-1">地點</th>
               <th scope="col" class="col">價格</th>
