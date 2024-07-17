@@ -4,11 +4,14 @@ require __DIR__ .'/db-connect.php';
 
 header('Content-Type: application/json');
 
-echo json_encode($_POST);
 
-//表單欄位的資料檢查
+$output = [
+  'success' => false,
+  'bodyData' => $_POST,
+];
 
-//避免sql injection
+
+
 $sql = "INSERT INTO `LARPLIST`(
 `larp_name`,`larp_img`,`larp_info`,
 `larp_desc`,`larp_people`,`larp_tag_id`,
@@ -16,7 +19,7 @@ $sql = "INSERT INTO `LARPLIST`(
 ) VALUES (
 ?,?,?,
 ?,?,?,
-DATE(),?,?)
+?,?,?)
 ";
 
 $stmt=$pdo->prepare($sql);
@@ -32,4 +35,5 @@ $stmt->execute([
   $_POST['larp_price'],
 ]);
 
-echo json_encode($stmt->rowCount());
+$output['success'] = !!$stmt->rowCount();
+echo json_encode($output);
